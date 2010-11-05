@@ -72,6 +72,7 @@ install(TARGETS rtcstage_standalone RUNTIME DESTINATION bin
 # Subdirectories
 add_subdirectory(cmake)
 add_subdirectory(comp)
+add_subdirectory(doc)
 add_subdirectory(examples)
 add_subdirectory(idl)
 add_subdirectory(proxies)
