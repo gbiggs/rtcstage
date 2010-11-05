@@ -1,0 +1,15 @@
+configuration.active_config: test
+
+conf.test.world_file: @CMAKE_INSTALL_PREFIX@/share/stage/worlds/simple.world
+conf.test.gui_x: 640
+conf.test.gui_y: 480
+conf.test.limit_models: 
+conf.test.plugins: @CMAKE_INSTALL_PREFIX@/share/rtcstage/examples/blobfinder/build/libblobfinder.so
+
+conf.__widget__.world_file: text
+conf.__widget__.gui_x: spin
+conf.__widget__.gui_y: spin
+
+conf.__constraints__.gui_x: 0<=x<=1920
+conf.__constraints__.gui_y: 0<=x<=1200
+

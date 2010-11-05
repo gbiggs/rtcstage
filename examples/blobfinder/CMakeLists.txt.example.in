@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
+
+set(CMAKE_MODULE_PATH "@CMAKE_INSTALL_PREFIX@/share/cmake/Modules")
+include(RTCStagePlugin)
+
+BUILD_PROXY_PLUGIN(blobfinder SOURCES blobfinder_proxy.cpp IDL bf_intf)
+
