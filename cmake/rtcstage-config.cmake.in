@@ -1,0 +1,162 @@
+# RTCStage CMake config file
+#
+# This file sets the following variables:
+# RTCStage_FOUND - Always TRUE.
+# RTCStage_INCLUDE_DIRS - Directories containing the RTCStage include files.
+# RTCStage_IDL_DIRS - Directories containing the RTCStage IDL files.
+# RTCStage_LIBRARIES - Libraries needed to use RTCStage.
+# RTCStage_DEFINITIONS - Compiler flags for RTCStage.
+# RTCStage_VERSION - The version of RTCStage found.
+# RTCStage_VERSION_MAJOR - The major version of RTCStage found.
+# RTCStage_VERSION_MINOR - The minor version of RTCStage found.
+# RTCStage_VERSION_REVISION - The revision version of RTCStage found.
+# RTCStage_VERSION_CANDIDATE - The candidate version of RTCStage found.
+#
+# This module also defines one macro usable in your CMakeLists.txt files:
+# BUILD_PROXY_PLUGIN(plugin_name ...)
+# Builds a model proxy plugin for use with the RTCStage component.
+# plugin_name is the name of the plugin to create.
+# Pass source files, idl files, flags, etc. as extra args preceeded by keywords
+# as follows:
+#   SOURCES <source files list>
+#   INCLUDEDIRS <include directories list>
+#   LIBDIRS <library directories list>
+#   LINKLIBS <list of libraries to link to>
+#   LINKFLAGS <link flags list>
+#   CFLAGS <compile flags list>
+#   IDL <idl files list>
+
+message(STATUS "Found RTCStage-@PROJECT_VERSION@")
+set(RTCStage_FOUND TRUE)
+
+find_package(Stage REQUIRED)
+
+set(RTCStage_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+    ${Stage_INCLUDE_DIRS})
+
+set(RTCStage_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+
+if(WIN32)
+    set(RTCStage_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${Stage_LIBRARIES})
+else(WIN32)
+    set(RTCStage_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${Stage_LIBRARIES})
+endif(WIN32)
+
+set(RTCStage_DEFINITIONS ${Stage_DEFINITIONS})
+
+set(RTCStage_VERSION @PROJECT_VERSION@)
+set(RTCStage_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(RTCStage_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(RTCStage_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(RTCStage_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+
+
+###############################################################################
+# Internal-use macros
+
+# This macro processes a list of arguments into separate lists based on
+# keywords found in the argument stream. For example:
+# BUILDBLAG (misc_arg INCLUDEDIRS /usr/include LIBDIRS /usr/local/lib
+#            LINKFLAGS -lthatawesomelib CFLAGS -DUSEAWESOMELIB SOURCES blag.c)
+# Any other args found at the start of the stream will go into the variable
+# specified in _other_args. Typically, you would take arguments to your macro
+# as normal, then pass ${ARGN} to this macro to parse the dynamic-length
+# arguments (so if ${_otherArgs} comes back non-empty, you've ignored something
+# or the user has passed in some arguments without a keyword).
+macro(_process_args _sources_args _include_dirs_args _lib_dirs_args _link_libs_args _link_flags_args _cflags_args _idl_args _other_args)
+    set(${_sources_args})
+    set(${_include_dirs_args})
+    set(${_lib_dirs_args})
+    set(${_link_libs_args})
+    set(${_link_flags_args})
+    set(${_cflags_args})
+    set(${_idl_args})
+    set(${_other_args})
+    set(_current_dest ${_other_args})
+    foreach(_arg ${ARGN})
+        if(_arg STREQUAL "SOURCES")
+            set(_current_dest ${_sources_args})
+        elseif(_arg STREQUAL "INCLUDEDIRS")
+            set(_current_dest ${_include_dirs_args})
+        elseif(_arg STREQUAL "LIBDIRS")
+            set(_current_dest ${_lib_dirs_args})
+        elseif(_arg STREQUAL "LINKLIBS")
+            set(_current_dest ${_link_libs_args})
+        elseif(_arg STREQUAL "LINKFLAGS")
+            set(_current_dest ${_link_flags_args})
+        elseif(_arg STREQUAL "CFLAGS")
+            set(_current_dest ${_cflags_args})
+        elseif(_arg STREQUAL "IDL")
+            set(_current_dest ${_idl_args})
+        else(_arg STREQUAL "SOURCES")
+            list(APPEND ${_current_dest} ${_arg})
+        endif(_arg STREQUAL "SOURCES")
+    endforeach(_arg)
+endmacro(_process_args)
+
+
+###############################################################################
+# User-facing macros
+
+macro(BUILD_PROXY_PLUGIN _plugin_name)
+    _process_args(_srcs _include_dirs _lib_dirs _link_libs _link_flags
+        _cflags _idl _junk ${ARGN})
+    if(_junk)
+        message(STATUS
+            "WARNING: unkeyworded arguments found in BUILD_PROXY_PLUGIN: ${_junk}")
+    endif(_junk)
+    LIST_TO_STRING(_cFlags "${_cFlags}")
+
+    if(_idl)
+        include_directories(${PROJECT_BINARY_DIR})
+        OPENRTM_COMPILE_IDL_FILES(${_idl})
+    endif(_idl)
+
+    if(_include_dirs OR _int_inc_dirs)
+        include_directories(${_include_dirs} ${_int_inc_dirs})
+    endif(_include_dirs OR _int_inc_dirs)
+    if(_lib_dirs OR _int_lib_dirs)
+        link_directories(${_lib_dirs} ${_int_lib_dirs})
+    endif(_lib_dirs OR _int_lib_dirs)
+
+    add_library(${_plugin_name} SHARED ${_srcs} ${_idl_srcs})
+
+    if(_int_link_flags)
+        set_target_properties(${_plugin_name} PROPERTIES
+            LINK_FLAGS "${_int_link_flags}")
+    endif(_int_link_flags)
+    if(_link_flags)
+        LIST_TO_STRING(_link_flags "${_link_flags}")
+        set_target_properties(${_plugin_name} PROPERTIES
+            LINK_FLAGS ${_link_flags})
+    endif(_link_flags)
+    if(_link_libs)
+        target_link_libraries(${_plugin_name} ${_link_libs})
+    endif(_link_libs)
+    if(_int_link_libs)
+        target_link_libraries(${_plugin_name} ${_int_link_libs})
+    endif(_int_link_libs)
+
+    # Get the current cflags for each source file, and add the global ones
+    # (this allows the user to specify individual cflags for each source file
+    # without the global ones overriding them).
+    if(_cflags OR _int_cflags)
+        foreach(_file ${_srcs})
+            get_source_file_property(_file_cflags ${_file} COMPILE_FLAGS)
+            if(_file_cflags STREQUAL NOTFOUND)
+                set(_new_cflags "${_int_cflags} ${_cflags}")
+            else(_file_cflags STREQUAL NOTFOUND)
+                set(_new_cflags "${_file_cflags} ${_int_cflags} ${_cflags}")
+            endif(_file_cflags STREQUAL NOTFOUND)
+            set_source_files_properties(${_file} PROPERTIES
+                COMPILE_FLAGS ${_new_cflags})
+        endforeach(_file)
+    endif(_cflags OR _int_cflags)
+endmacro(BUILD_PROXY_PLUGIN)
+

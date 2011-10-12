@@ -1,5 +1,12 @@
-set(idl_files stage_services.idl)
+set(idls ${CMAKE_CURRENT_SOURCE_DIR}/stage_services.idl)
 
-install(FILES ${idl_files} DESTINATION ${RTCS_INCLUDE_INSTALL_DIR}/idl
+install(FILES ${idls} DESTINATION ${INC_INSTALL_DIR}/idl
+    COMPONENT idl)
+
+OPENRTM_COMPILE_IDL_FILES(${PROJECT_BINARY_DIR}/include/${PROJECT_NAME_LOWER}/idl/
+    ${idls})
+set(ALL_IDL_SOURCES ${ALL_IDL_SOURCES} PARENT_SCOPE)
+install(FILES ${ALL_IDL_HEADERS}
+    DESTINATION ${INC_INSTALL_DIR}/${PROJECT_NAME_LOWER}/idl
     COMPONENT headers)
 
