@@ -73,13 +73,13 @@ void FiducialProxy::Update(double &time)
                 ii < fids.size(); ii++)
         {
             _fiducials.fiducialsList[ii].id = fids[ii].id;
-            _fiducials.fiducialsList[ii].pose.position.x = fids[ii].pose_rel.x;
-            _fiducials.fiducialsList[ii].pose.position.y = fids[ii].pose_rel.y;
-            _fiducials.fiducialsList[ii].pose.position.z = fids[ii].pose_rel.z;
+            _fiducials.fiducialsList[ii].pose.position.x = fids[ii].pose.x;
+            _fiducials.fiducialsList[ii].pose.position.y = fids[ii].pose.y;
+            _fiducials.fiducialsList[ii].pose.position.z = fids[ii].pose.z;
             _fiducials.fiducialsList[ii].pose.orientation.r = 0.0;
             _fiducials.fiducialsList[ii].pose.orientation.p = 0.0;
             _fiducials.fiducialsList[ii].pose.orientation.y =
-                fids[ii].pose_rel.a;
+                fids[ii].pose.a;
             _fiducials.fiducialsList[ii].poseUncertainty.position.x = 0.0;
             _fiducials.fiducialsList[ii].poseUncertainty.position.y = 0.0;
             _fiducials.fiducialsList[ii].poseUncertainty.position.z = 0.0;

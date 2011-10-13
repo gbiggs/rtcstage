@@ -32,7 +32,6 @@
 #include <rtcstage/camera_proxy.h>
 #include <rtcstage/fiducial_proxy.h>
 #include <rtcstage/gripper_proxy.h>
-#include <rtcstage/laser_proxy.h>
 #include <rtcstage/position_proxy.h>
 #include <rtcstage/ranger_proxy.h>
 
@@ -164,8 +163,6 @@ ConsMapT RTCStage::InitConsMap() const
         DefaultModelConstructor<ModelProxies::FiducialProxy>;
     cons_map["gripper"] =
         DefaultModelConstructor<ModelProxies::GripperProxy>;
-    cons_map["laser"] =
-        DefaultModelConstructor<ModelProxies::LaserProxy>;
     cons_map["position"] =
         DefaultModelConstructor<ModelProxies::PositionProxy>;
     cons_map["ranger"] =

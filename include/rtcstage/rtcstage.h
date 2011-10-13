@@ -86,7 +86,6 @@ class RTCStage
         std::string _plugins;
         Stg::WorldGui *_world;
         std::vector<ModelProxies::ModelProxy*> _proxies;
-        Stg::ModelLaser *_ranger_model;
 
         ConsMapT InitConsMap() const;
         void InitProxies(ConsMapT &cons_map);

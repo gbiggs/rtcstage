@@ -21,11 +21,12 @@
 # This module also defines one macro usable in your CMakeLists.txt files:
 # OPENRTM_COMPILE_IDL_FILES(output_dir file1 file2 ...)
 #   Compiles the specified IDL files, placing the generated C++ source files in
-#   ${output_dir}. The source files can be found in file1_SRCS and file1_HDRS,
-#   file2_SRCS and file2_HDRS, etc., all source files for all IDL files are
-#   available in ALL_IDL_SOURCES, and all header files can be found in
-#   ALL_IDL_HEADERS. To depend on the generated files, depend on the targets
-#   file1_TGT, file2_TGT, etc. The target ALL_IDL_TARGET is available to depend
+#   ${output_dir}. The source files can be found in file1_SOURCES and
+#   file1_HEADERS,
+#   file2_SOURCES and file2_HEADERS, etc., all source files for all IDL files are
+#   available in IDL_ALL_SOURCES, and all header files can be found in
+#   IDL_ALL_HEADERS. To depend on the generated files, depend on the targets
+#   file1_TGT, file2_TGT, etc. The target IDL_ALL_TARGET is available to depend
 #   on all source files generated from IDL files.
 
 find_package(PkgConfig)
@@ -111,24 +112,23 @@ macro(_compile_intf_idl _idl_file _dir)
         OUTPUT_STRIP_TRAILING_WHITESPACE)
     set(RTM_IDL_DIR ${_rtm_prefix}/include/rtm/idl CACHE STRING
         "Directory containing the OpenRTM-aist IDL files.")
-    set(_idl_srcs_var ${_idl}_SRCS)
+    set(_idl_srcs_var ${_idl}_SOURCES)
     _idl_source_outputs(${_idl_srcs_var} ${_idl} ${_dir})
-    set(_idl_hdrs_var ${_idl}_HDRS)
+    set(_idl_hdrs_var ${_idl}_HEADERS)
     _idl_header_output(${_idl_hdrs_var} ${_idl} ${_dir})
     file(MAKE_DIRECTORY ${_dir})
     add_custom_command(OUTPUT ${${_idl_srcs_var}} ${${_idl_hdrs_var}}
-        COMMAND ${_idl_compiler} ${_idlc_flags} -I${RTM_IDL_DIR} -C${_dir}
-        ${_idl_file}
+        COMMAND ${OPENRTM_IDL_COMPILER} ${OPENRTM_IDL_FLAGS}
+        -I${OPENRTM_IDL_DIR} -C${_dir} ${_idl_file}
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} DEPENDS ${_idl_file}
         COMMENT "Compiling ${_idl_file} for CORBA" VERBATIM)
-    set_source_files_properties(${${idl_srcs_var}} PROPERTIES GENERATED 1)
     set(IDL_ALL_SOURCES ${IDL_ALL_SOURCES} ${${_idl_srcs_var}})
     set(IDL_ALL_HEADERS ${IDL_ALL_HEADERS} ${${_idl_hdrs_var}})
     add_custom_target(${_idl}_TGT DEPENDS ${${_idl_srcs_var}})
-    if(NOT TARGET ALL_IDL_TARGET)
-        add_custom_target(ALL_IDL_TARGET)
-    endif(NOT TARGET ALL_IDL_TARGET)
-    add_dependencies(ALL_IDL_TARGET ${_idl}_TGT)
+    if(NOT TARGET IDL_ALL_TARGET)
+        add_custom_target(IDL_ALL_TARGET)
+    endif(NOT TARGET IDL_ALL_TARGET)
+    add_dependencies(IDL_ALL_TARGET ${_idl}_TGT)
 endmacro(_compile_intf_idl)
 
 
