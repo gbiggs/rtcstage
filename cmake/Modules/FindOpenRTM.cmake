@@ -110,8 +110,6 @@ macro(_compile_intf_idl _idl_file _dir)
     separate_arguments(_idlc_flags)
     execute_process(COMMAND rtm-config --prefix OUTPUT_VARIABLE _rtm_prefix
         OUTPUT_STRIP_TRAILING_WHITESPACE)
-    set(RTM_IDL_DIR ${_rtm_prefix}/include/rtm/idl CACHE STRING
-        "Directory containing the OpenRTM-aist IDL files.")
     set(_idl_srcs_var ${_idl}_SOURCES)
     _idl_source_outputs(${_idl_srcs_var} ${_idl} ${_dir})
     set(_idl_hdrs_var ${_idl}_HEADERS)
