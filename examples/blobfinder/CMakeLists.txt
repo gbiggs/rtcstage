@@ -1,4 +1,4 @@
-set(install_dir share/${PROJECT_NAME_LOWER}/examples/blobfinder)
+set(install_dir ${SHARE_INSTALL_DIR}/examples/blobfinder)
 
 set(example_cmake_in ${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt.example.in)
 set(example_cmake ${CMAKE_CURRENT_BINARY_DIR}/CMakeLists.txt.example)

@@ -1,7 +1,6 @@
-cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
+cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
-set(CMAKE_MODULE_PATH "@CMAKE_INSTALL_PREFIX@/share/cmake/Modules")
-include(RTCStagePlugin)
+find_package(rtcstage 2 REQUIRED)
 
 BUILD_PROXY_PLUGIN(new_position SOURCES new_position_proxy.cpp)
 

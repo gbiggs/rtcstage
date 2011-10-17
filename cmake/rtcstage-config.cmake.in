@@ -29,26 +29,28 @@
 message(STATUS "Found RTCStage-@PROJECT_VERSION@")
 set(RTCStage_FOUND TRUE)
 
+find_package(OpenRTM 1 REQUIRED)
 find_package(Stage REQUIRED)
 
 set(RTCStage_INCLUDE_DIRS
     "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
-    ${Stage_INCLUDE_DIRS})
+    ${Stage_INCLUDE_DIRS} ${OPENRTM_INCLUDE_DIRS})
 
 set(RTCStage_IDL_DIRS
-    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl"
+    ${OPENRTM_IDL_DIR})
 
 if(WIN32)
     set(RTCStage_LIBRARIES
         "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
-        ${Stage_LIBRARIES})
+        ${Stage_LIBRARIES} ${OPENRTM_LIBRARIES})
 else(WIN32)
     set(RTCStage_LIBRARIES
         "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
-        ${Stage_LIBRARIES})
+        ${Stage_LIBRARIES} ${OPENRTM_LIBRARIES})
 endif(WIN32)
 
-set(RTCStage_DEFINITIONS ${Stage_DEFINITIONS})
+set(RTCStage_DEFINITIONS ${Stage_DEFINITIONS} ${OPENRTM_DEFINITIONS})
 
 set(RTCStage_VERSION @PROJECT_VERSION@)
 set(RTCStage_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
@@ -62,20 +64,18 @@ set(RTCStage_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
 
 # This macro processes a list of arguments into separate lists based on
 # keywords found in the argument stream. For example:
-# BUILDBLAG (misc_arg INCLUDEDIRS /usr/include LIBDIRS /usr/local/lib
-#            LINKFLAGS -lthatawesomelib CFLAGS -DUSEAWESOMELIB SOURCES blag.c)
+# BUILDBLAG (misc_arg INCLUDEDIRS /usr/include
+#            LINKLIBS thatawesomelib DEFS -DUSEAWESOMELIB SOURCES blag.c)
 # Any other args found at the start of the stream will go into the variable
 # specified in _other_args. Typically, you would take arguments to your macro
 # as normal, then pass ${ARGN} to this macro to parse the dynamic-length
 # arguments (so if ${_otherArgs} comes back non-empty, you've ignored something
 # or the user has passed in some arguments without a keyword).
-macro(_process_args _sources_args _include_dirs_args _lib_dirs_args _link_libs_args _link_flags_args _cflags_args _idl_args _other_args)
+macro(_process_args _sources_args _include_dirs_args _link_libs_args _defs_args _idl_args _other_args)
     set(${_sources_args})
     set(${_include_dirs_args})
-    set(${_lib_dirs_args})
     set(${_link_libs_args})
-    set(${_link_flags_args})
-    set(${_cflags_args})
+    set(${_defs_args})
     set(${_idl_args})
     set(${_other_args})
     set(_current_dest ${_other_args})
@@ -84,14 +84,10 @@ macro(_process_args _sources_args _include_dirs_args _lib_dirs_args _link_libs_a
             set(_current_dest ${_sources_args})
         elseif(_arg STREQUAL "INCLUDEDIRS")
             set(_current_dest ${_include_dirs_args})
-        elseif(_arg STREQUAL "LIBDIRS")
-            set(_current_dest ${_lib_dirs_args})
         elseif(_arg STREQUAL "LINKLIBS")
             set(_current_dest ${_link_libs_args})
-        elseif(_arg STREQUAL "LINKFLAGS")
-            set(_current_dest ${_link_flags_args})
-        elseif(_arg STREQUAL "CFLAGS")
-            set(_current_dest ${_cflags_args})
+        elseif(_arg STREQUAL "DEFS")
+            set(_current_dest ${_defs_args})
         elseif(_arg STREQUAL "IDL")
             set(_current_dest ${_idl_args})
         else(_arg STREQUAL "SOURCES")
@@ -105,8 +101,7 @@ endmacro(_process_args)
 # User-facing macros
 
 macro(BUILD_PROXY_PLUGIN _plugin_name)
-    _process_args(_srcs _include_dirs _lib_dirs _link_libs _link_flags
-        _cflags _idl _junk ${ARGN})
+    _process_args(_srcs _include_dirs _link_libs _defs _idl _junk ${ARGN})
     if(_junk)
         message(STATUS
             "WARNING: unkeyworded arguments found in BUILD_PROXY_PLUGIN: ${_junk}")
@@ -114,49 +109,22 @@ macro(BUILD_PROXY_PLUGIN _plugin_name)
     LIST_TO_STRING(_cFlags "${_cFlags}")
 
     if(_idl)
+        OPENRTM_COMPILE_IDL_FILES(${PROJECT_BINARY_DIR} ${_idl})
         include_directories(${PROJECT_BINARY_DIR})
-        OPENRTM_COMPILE_IDL_FILES(${_idl})
     endif(_idl)
 
-    if(_include_dirs OR _int_inc_dirs)
-        include_directories(${_include_dirs} ${_int_inc_dirs})
-    endif(_include_dirs OR _int_inc_dirs)
-    if(_lib_dirs OR _int_lib_dirs)
-        link_directories(${_lib_dirs} ${_int_lib_dirs})
-    endif(_lib_dirs OR _int_lib_dirs)
+    include_directories(${RTCStage_INCLUDE_DIRS})
+    if(_include_dirs)
+        include_directories(${_include_dirs})
+    endif(_include_dirs)
+    if(_lib_dirs)
+        link_directories(${_lib_dirs})
+    endif(_lib_dirs)
+    add_definitions(${RTCStage_DEFINITIONS} ${_defs})
 
-    add_library(${_plugin_name} SHARED ${_srcs} ${_idl_srcs})
-
-    if(_int_link_flags)
-        set_target_properties(${_plugin_name} PROPERTIES
-            LINK_FLAGS "${_int_link_flags}")
-    endif(_int_link_flags)
-    if(_link_flags)
-        LIST_TO_STRING(_link_flags "${_link_flags}")
-        set_target_properties(${_plugin_name} PROPERTIES
-            LINK_FLAGS ${_link_flags})
-    endif(_link_flags)
-    if(_link_libs)
-        target_link_libraries(${_plugin_name} ${_link_libs})
-    endif(_link_libs)
-    if(_int_link_libs)
-        target_link_libraries(${_plugin_name} ${_int_link_libs})
-    endif(_int_link_libs)
-
-    # Get the current cflags for each source file, and add the global ones
-    # (this allows the user to specify individual cflags for each source file
-    # without the global ones overriding them).
-    if(_cflags OR _int_cflags)
-        foreach(_file ${_srcs})
-            get_source_file_property(_file_cflags ${_file} COMPILE_FLAGS)
-            if(_file_cflags STREQUAL NOTFOUND)
-                set(_new_cflags "${_int_cflags} ${_cflags}")
-            else(_file_cflags STREQUAL NOTFOUND)
-                set(_new_cflags "${_file_cflags} ${_int_cflags} ${_cflags}")
-            endif(_file_cflags STREQUAL NOTFOUND)
-            set_source_files_properties(${_file} PROPERTIES
-                COMPILE_FLAGS ${_new_cflags})
-        endforeach(_file)
-    endif(_cflags OR _int_cflags)
+    add_library(${_plugin_name} SHARED ${_srcs} ${IDL_ALL_SOURCES})
+    set_source_files_properties(${IDL_ALL_SOURCES} PROPERTIES GENERATED 1)
+    add_dependencies(${_plugin_name} IDL_ALL_TARGET)
+    target_link_libraries(${_plugin_name} ${RTCStage_LIBRARIES} ${_link_libs})
 endmacro(BUILD_PROXY_PLUGIN)
 

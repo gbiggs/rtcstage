@@ -6,5 +6,5 @@ set(example_conf_files rtc.conf
                        ${stage_conf})
 
 install(FILES ${example_conf_files}
-    DESTINATION share/${PROJECT_NAME_LOWER}/examples/conf COMPONENT examples)
+    DESTINATION ${SHARE_INSTALL_DIR}/examples/conf COMPONENT examples)
 
