@@ -190,28 +190,28 @@ for details.
 Proxy    Ports        Data type       Port description
 ======== ============ =============== ================
 Actuator vel_control  TimedDouble     Velocity control of the actuator.
-         pos_control  TimedDouble     Position control of the actuator.
-         state        ActArrayState   Current status of the actuator.
-         current_vel  TimedDouble     Current velocity of the actuator.
-         svc          GetGeometry2D   Get the pose and size of the actuator.
+\        pos_control  TimedDouble     Position control of the actuator.
+\        state        ActArrayState   Current status of the actuator.
+\        current_vel  TimedDouble     Current velocity of the actuator.
+\        svc          GetGeometry2D   Get the pose and size of the actuator.
 Camera   control      TimedPoint2D    Control over pan and tilt.
-         image        CameraImage     Colour image captured by the camera, in RGBA.
-         depth        CameraImage     Depth image captured by the camera, in 8-bit.
-         svc          GetGeometry2D   Get the pose and size of the camera.
+\        image        CameraImage     Colour image captured by the camera, in RGBA.
+\        depth        CameraImage     Depth image captured by the camera, in 8-bit.
+\        svc          GetGeometry2D   Get the pose and size of the camera.
 Fiducial fiducials    Fiducials       List of currently-detected fiducials.
-         svc          GetGeometry2D   Get the pose and size of the fiducial sensor.
+\        svc          GetGeometry2D   Get the pose and size of the fiducial sensor.
 Gripper  state        GripperState    Status of the gripper.
-         svc          GetGeometry2D   Get the pose and size of the gripper.
-                      GripperControl  Open and close the gripper.
+\        svc          GetGeometry2D   Get the pose and size of the gripper.
+\                     GripperControl  Open and close the gripper.
 Laser    ranges       RangeData       Range values measured by the laser.
-         intensities  IntensityData   Intensity values measured by the laser.
-         svc          GetGeometry2D   Get the pose and size of the laser sensor.
+\        intensities  IntensityData   Intensity values measured by the laser.
+\        svc          GetGeometry2D   Get the pose and size of the laser sensor.
 Position vel_control  TimedVelocity2D Velocity control of the robot.
-         pose_control TimedPose2D     Pose control of the robot.
-         current_vel  TimedVelocity2D Current velocity of the robot.
-         odometry     TimedPose2D     Value of the robot's odometry sensor.
-         svc          GetGeometry2D   Get the pose and size of the robot.
-                      SetOdometry2D   Set the value of the odometry sensor.
+\        pose_control TimedPose2D     Pose control of the robot.
+\        current_vel  TimedVelocity2D Current velocity of the robot.
+\        odometry     TimedPose2D     Value of the robot's odometry sensor.
+\        svc          GetGeometry2D   Get the pose and size of the robot.
+\                     SetOdometry2D   Set the value of the odometry sensor.
 ======== ============ =============== ================
 
 Filtering models
