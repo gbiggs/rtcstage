@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML><HEAD></HEAD><BODY>
+<OBJECT type="text/site properties">
+<param name="FrameName" value="right">
+</OBJECT>
+<UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#a3036b93d6ce0f35ac0ceb2057358e8b6"><param name="Name" value="_get_geom_prov"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#a2964877d2482062b3f61f19becfb2b72"><param name="Name" value="_last_time"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#a508b319e660aa06d71cc130ec83ba00a"><param name="Name" value="_model"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#a906de94f3ac836e7b8b9c8a114f24844"><param name="Name" value="_svc_port"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_actuator_proxy.html#a5cd2f6979bad76725a530431feb021ac"><param name="Name" value="ActuatorProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blobfinder_proxy.html#a16a6ff9a77687a53db4876db7d10adeb"><param name="Name" value="AddPorts"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blobfinder_proxy.html#a16a6ff9a77687a53db4876db7d10adeb"><param name="Name" value="BlobfinderProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_actuator_proxy.html#a799dbca345362297031a7bb3ad56903d"><param name="Name" value="ModelProxies::ActuatorProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_camera_proxy.html#ac2f8628f4f104e5579da2e53d637cc5f"><param name="Name" value="ModelProxies::CameraProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_fiducial_proxy.html#a77e34ef2475b7faa0ce9b23307e406bf"><param name="Name" value="ModelProxies::FiducialProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_proxy.html#ab994ed54cd4c5317bb42a4b79e1a51f8"><param name="Name" value="ModelProxies::GripperProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#add84a1482627618626c3c905fae8fd0c"><param name="Name" value="ModelProxies::ModelProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_proxy.html#aee778f2d6728b22750f9f12629ce5987"><param name="Name" value="ModelProxies::PositionProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_ranger_proxy.html#a96fcc9e59666040c8555711f9d2e9d11"><param name="Name" value="ModelProxies::RangerProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_new_position_proxy.html#a93a8b15f138d9aa259bde4868a13e860"><param name="Name" value="NewPositionProxy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="blobfinder__proxy_8h.html"><param name="Name" value="blobfinder_proxy.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="blobfinder__proxy_8h.html#a024a7c47ff9ba6d9643245aabad384bb"><param name="Name" value="GetProxyType"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="blobfinder__proxy_8h.html#a026077a469bf074dbe110b9cb2a32fd8"><param name="Name" value="ProxyFactory"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blobfinder_proxy.html"><param name="Name" value="BlobfinderProxy"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blobfinder_proxy.html#a16a6ff9a77687a53db4876db7d10adeb"><param name="Name" value="AddPorts"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blobfinder_proxy.html#a2870747f382f9e83386f308d89efb0a6"><param name="Name" value="BlobfinderProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blobfinder_proxy.html#ac149bc55381334e55c295d475e325850"><param name="Name" value="Update"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blobfinder_proxy.html#ab514e75bd31d6fb9bfbf04e714e97670"><param name="Name" value="~BlobfinderProxy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_camera_proxy.html#a6e6fbf4af427050cef8f48336a1d0e7c"><param name="Name" value="CameraProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_control_provider.html#ad2dedf3f6f52a993cc8066a346eb147b"><param name="Name" value="Close"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="rtcstage_8h.html#a0c6365985eff142f5aed6a9bf7e6e5a2"><param name="Name" value="ConsMapT"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="model__proxy_8h.html#ab72c1884195b15589a37abeb17b3b2c6"><param name="Name" value="DefaultModelConstructor"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_fiducial_proxy.html#a45f522b96003f9615f05a3a26cec38a9"><param name="Name" value="FiducialProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_get_geom_provider.html#a064be6d2ce5ee02eb0691569f77c20ea"><param name="Name" value="GetGeometry"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_get_geom_provider.html#acb73d08f485c83111ac865671d2307e8"><param name="Name" value="GetGeomProvider"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_model_proxies.html#a5d839dab2fc17f2bbe22da1e51922325"><param name="Name" value="GetModelTypeFn"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_model_proxies.html#a5d839dab2fc17f2bbe22da1e51922325"><param name="Name" value="model_proxy.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_model_proxies.html#a5d839dab2fc17f2bbe22da1e51922325"><param name="Name" value="ModelProxies"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#ae7f82d539a00ee928bf2fed5a50ab041"><param name="Name" value="GetName"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="blobfinder__proxy_8h.html#a024a7c47ff9ba6d9643245aabad384bb"><param name="Name" value="GetProxyType"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="blobfinder__proxy_8h.html#a024a7c47ff9ba6d9643245aabad384bb"><param name="Name" value="blobfinder_proxy.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="new__position__proxy_8h.html#a024a7c47ff9ba6d9643245aabad384bb"><param name="Name" value="new_position_proxy.h"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_control_provider.html#a1f10dc414a14719bf3927ed0202bc5cb"><param name="Name" value="GripperControlProvider"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_proxy.html#a3916ca1cafc13a5dd60621f968403c3c"><param name="Name" value="GripperProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_missing_symbol.html"><param name="Name" value="MissingSymbol"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_missing_symbol.html#a97ec1c66806f4e8938db8826db9b0f43"><param name="Name" value="MissingSymbol"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="model__proxy_8h.html"><param name="Name" value="model_proxy.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="model__proxy_8h.html#ab72c1884195b15589a37abeb17b3b2c6"><param name="Name" value="DefaultModelConstructor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="model__proxy_8h.html#a5d839dab2fc17f2bbe22da1e51922325"><param name="Name" value="GetModelTypeFn"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="model__proxy_8h.html#a2dc61f900f69d381b153084e853cf3f0"><param name="Name" value="ModelConstructor"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_model_proxies.html#a2dc61f900f69d381b153084e853cf3f0"><param name="Name" value="ModelConstructor"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_model_proxies.html#a2dc61f900f69d381b153084e853cf3f0"><param name="Name" value="model_proxy.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_model_proxies.html#a2dc61f900f69d381b153084e853cf3f0"><param name="Name" value="ModelProxies"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_model_proxies.html"><param name="Name" value="ModelProxies"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_actuator_proxy.html"><param name="Name" value="ModelProxies::ActuatorProxy"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_actuator_proxy.html#a5cd2f6979bad76725a530431feb021ac"><param name="Name" value="ActuatorProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_actuator_proxy.html#a799dbca345362297031a7bb3ad56903d"><param name="Name" value="AddPorts"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_actuator_proxy.html#a06cc31e2e769bf78d00819f4e89a572d"><param name="Name" value="Update"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_actuator_proxy.html#a1787a4ba6ffe88649cfec48d1c53e0a0"><param name="Name" value="~ActuatorProxy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_camera_proxy.html"><param name="Name" value="ModelProxies::CameraProxy"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_camera_proxy.html#ac2f8628f4f104e5579da2e53d637cc5f"><param name="Name" value="AddPorts"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_camera_proxy.html#a6e6fbf4af427050cef8f48336a1d0e7c"><param name="Name" value="CameraProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_camera_proxy.html#ac3e8f6dd42e7da06d83ce4ca9ebdfc07"><param name="Name" value="Update"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_camera_proxy.html#ac903e0c6ff829b9e71a07794e9151ad8"><param name="Name" value="~CameraProxy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_fiducial_proxy.html"><param name="Name" value="ModelProxies::FiducialProxy"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_fiducial_proxy.html#a77e34ef2475b7faa0ce9b23307e406bf"><param name="Name" value="AddPorts"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_fiducial_proxy.html#a45f522b96003f9615f05a3a26cec38a9"><param name="Name" value="FiducialProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_fiducial_proxy.html#a507070805b5b50434ebf94882f62e662"><param name="Name" value="Update"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_fiducial_proxy.html#a94c2703bf4975a0c70b448660f8e23b0"><param name="Name" value="~FiducialProxy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_get_geom_provider.html"><param name="Name" value="ModelProxies::GetGeomProvider"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_get_geom_provider.html#a064be6d2ce5ee02eb0691569f77c20ea"><param name="Name" value="GetGeometry"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_get_geom_provider.html#acb73d08f485c83111ac865671d2307e8"><param name="Name" value="GetGeomProvider"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_get_geom_provider.html#a0e3a9696a1dfc46f394759b5229c97b2"><param name="Name" value="~GetGeomProvider"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_control_provider.html"><param name="Name" value="ModelProxies::GripperControlProvider"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_control_provider.html#ad2dedf3f6f52a993cc8066a346eb147b"><param name="Name" value="Close"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_control_provider.html#a1f10dc414a14719bf3927ed0202bc5cb"><param name="Name" value="GripperControlProvider"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_control_provider.html#a83daf55314bd1af364e92adc17f1b99e"><param name="Name" value="Open"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_control_provider.html#ae134693736b3f1a4c3d844690cea2b98"><param name="Name" value="~GripperControlProvider"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_proxy.html"><param name="Name" value="ModelProxies::GripperProxy"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_proxy.html#ab994ed54cd4c5317bb42a4b79e1a51f8"><param name="Name" value="AddPorts"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_proxy.html#a3916ca1cafc13a5dd60621f968403c3c"><param name="Name" value="GripperProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_proxy.html#a34ea19c778a5bc5edb5e6a2a9066d320"><param name="Name" value="Update"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_proxy.html#a170fee0e7bb6a18239c4a006872eebcc"><param name="Name" value="~GripperProxy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html"><param name="Name" value="ModelProxies::ModelProxy"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#a3036b93d6ce0f35ac0ceb2057358e8b6"><param name="Name" value="_get_geom_prov"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#a2964877d2482062b3f61f19becfb2b72"><param name="Name" value="_last_time"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#a508b319e660aa06d71cc130ec83ba00a"><param name="Name" value="_model"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#a906de94f3ac836e7b8b9c8a114f24844"><param name="Name" value="_svc_port"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#add84a1482627618626c3c905fae8fd0c"><param name="Name" value="AddPorts"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#ae7f82d539a00ee928bf2fed5a50ab041"><param name="Name" value="GetName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#adaa373f71dcecb9a8baa8043ba3c6fb0"><param name="Name" value="ModelProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#ae39544cc577b0143a4ca713316f52b8b"><param name="Name" value="PrefixName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#a89320e2f74ccbc4755ee8225cb429c3a"><param name="Name" value="Update"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#aca63eae58f2340a6ebce84ab308408be"><param name="Name" value="~ModelProxy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_proxy.html"><param name="Name" value="ModelProxies::PositionProxy"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_proxy.html#aee778f2d6728b22750f9f12629ce5987"><param name="Name" value="AddPorts"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_proxy.html#ac698fc608e8f7c2918bf9dd2bcfd0f43"><param name="Name" value="PositionProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_proxy.html#a1ec72c8fdd2a6ab72e5f66ed1cc3ee12"><param name="Name" value="Update"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_proxy.html#a72fca7f5a6eb3a2fa990a40c1a03e8f6"><param name="Name" value="~PositionProxy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_set_odom_provider.html"><param name="Name" value="ModelProxies::PositionSetOdomProvider"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_set_odom_provider.html#aef16e570516dff518af485b139e214c3"><param name="Name" value="PositionSetOdomProvider"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_set_odom_provider.html#a5d8f221d9e9b9f18e942239d4d50186e"><param name="Name" value="SetOdometry"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_set_odom_provider.html#a70b7b1dc2a595aca435d2c9c8353619b"><param name="Name" value="~PositionSetOdomProvider"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_ranger_proxy.html"><param name="Name" value="ModelProxies::RangerProxy"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_ranger_proxy.html#a96fcc9e59666040c8555711f9d2e9d11"><param name="Name" value="AddPorts"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_ranger_proxy.html#a7c0f4c1c40c265f4d3d1f5615fbb06e9"><param name="Name" value="RangerProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_ranger_proxy.html#a178f084ca87f808087c1bc33831c6b11"><param name="Name" value="Update"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_ranger_proxy.html#a038e9d582b1dac9ac1a0532deb6f742c"><param name="Name" value="~RangerProxy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_model_proxies.html"><param name="Name" value="ModelProxies"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_model_proxies.html#a5d839dab2fc17f2bbe22da1e51922325"><param name="Name" value="GetModelTypeFn"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_model_proxies.html#a2dc61f900f69d381b153084e853cf3f0"><param name="Name" value="ModelConstructor"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#adaa373f71dcecb9a8baa8043ba3c6fb0"><param name="Name" value="ModelProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="new__position__proxy_8h.html"><param name="Name" value="new_position_proxy.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="new__position__proxy_8h.html#a024a7c47ff9ba6d9643245aabad384bb"><param name="Name" value="GetProxyType"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="new__position__proxy_8h.html#a026077a469bf074dbe110b9cb2a32fd8"><param name="Name" value="ProxyFactory"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_new_position_proxy.html"><param name="Name" value="NewPositionProxy"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_new_position_proxy.html#a93a8b15f138d9aa259bde4868a13e860"><param name="Name" value="AddPorts"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_new_position_proxy.html#a93b3288fa914a65112b4a23827290211"><param name="Name" value="NewPositionProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_new_position_proxy.html#a56e0a1438fc09d9ef525bc84b5b882c7"><param name="Name" value="Update"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_new_position_proxy.html#acb6cecae057f32c0d33f04dbe2dbdcfa"><param name="Name" value="~NewPositionProxy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#ad55b01ecc6de8fff5b98cf4f8a5edf1e"><param name="Name" value="onActivated"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#af6da09c52f6b98a8feed01994b673543"><param name="Name" value="onDeactivated"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#a1b4265088e69fbd04f8dcd46b463215e"><param name="Name" value="onExecute"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#aa254fda92e844d78f778d6396c5a0400"><param name="Name" value="onFinalize"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#ab8b6daa630174fe9500fa69529a079a2"><param name="Name" value="onInitialize"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_control_provider.html#a83daf55314bd1af364e92adc17f1b99e"><param name="Name" value="Open"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plugin_load_failed.html"><param name="Name" value="PluginLoadFailed"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plugin_load_failed.html#a0449f0d6f2de61e312e774a86e53ded7"><param name="Name" value="PluginLoadFailed"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_proxy.html#ac698fc608e8f7c2918bf9dd2bcfd0f43"><param name="Name" value="PositionProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_set_odom_provider.html#aef16e570516dff518af485b139e214c3"><param name="Name" value="PositionSetOdomProvider"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#ae39544cc577b0143a4ca713316f52b8b"><param name="Name" value="PrefixName"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="blobfinder__proxy_8h.html#a026077a469bf074dbe110b9cb2a32fd8"><param name="Name" value="ProxyFactory"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="blobfinder__proxy_8h.html#a026077a469bf074dbe110b9cb2a32fd8"><param name="Name" value="blobfinder_proxy.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="new__position__proxy_8h.html#a026077a469bf074dbe110b9cb2a32fd8"><param name="Name" value="new_position_proxy.h"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_ranger_proxy.html#a7c0f4c1c40c265f4d3d1f5615fbb06e9"><param name="Name" value="RangerProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html"><param name="Name" value="RTCStage"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="rtcstage_8h.html"><param name="Name" value="rtcstage.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="rtcstage_8h.html#a0c6365985eff142f5aed6a9bf7e6e5a2"><param name="Name" value="ConsMapT"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="rtcstage_8h.html#a0dfe59a9049540c5ec2642ca0612ec24"><param name="Name" value="rtcstage_init"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html"><param name="Name" value="RTCStage"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#ad55b01ecc6de8fff5b98cf4f8a5edf1e"><param name="Name" value="onActivated"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#af6da09c52f6b98a8feed01994b673543"><param name="Name" value="onDeactivated"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#a1b4265088e69fbd04f8dcd46b463215e"><param name="Name" value="onExecute"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#aa254fda92e844d78f778d6396c5a0400"><param name="Name" value="onFinalize"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#ab8b6daa630174fe9500fa69529a079a2"><param name="Name" value="onInitialize"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#a6a7e377c7402cf9e051556f43e338fb4"><param name="Name" value="RTCStage"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#aa98b676ab61f4033195bee459b409fe4"><param name="Name" value="~RTCStage"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="rtcstage_8h.html#a0dfe59a9049540c5ec2642ca0612ec24"><param name="Name" value="rtcstage_init"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_set_odom_provider.html#a5d8f221d9e9b9f18e942239d4d50186e"><param name="Name" value="SetOdometry"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blobfinder_proxy.html#ac149bc55381334e55c295d475e325850"><param name="Name" value="Update"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blobfinder_proxy.html#ac149bc55381334e55c295d475e325850"><param name="Name" value="BlobfinderProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_actuator_proxy.html#a06cc31e2e769bf78d00819f4e89a572d"><param name="Name" value="ModelProxies::ActuatorProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_camera_proxy.html#ac3e8f6dd42e7da06d83ce4ca9ebdfc07"><param name="Name" value="ModelProxies::CameraProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_fiducial_proxy.html#a507070805b5b50434ebf94882f62e662"><param name="Name" value="ModelProxies::FiducialProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_proxy.html#a34ea19c778a5bc5edb5e6a2a9066d320"><param name="Name" value="ModelProxies::GripperProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#a89320e2f74ccbc4755ee8225cb429c3a"><param name="Name" value="ModelProxies::ModelProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_proxy.html#a1ec72c8fdd2a6ab72e5f66ed1cc3ee12"><param name="Name" value="ModelProxies::PositionProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_ranger_proxy.html#a178f084ca87f808087c1bc33831c6b11"><param name="Name" value="ModelProxies::RangerProxy"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_new_position_proxy.html#a56e0a1438fc09d9ef525bc84b5b882c7"><param name="Name" value="NewPositionProxy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_actuator_proxy.html#a1787a4ba6ffe88649cfec48d1c53e0a0"><param name="Name" value="~ActuatorProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blobfinder_proxy.html#ab514e75bd31d6fb9bfbf04e714e97670"><param name="Name" value="~BlobfinderProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_camera_proxy.html#ac903e0c6ff829b9e71a07794e9151ad8"><param name="Name" value="~CameraProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_fiducial_proxy.html#a94c2703bf4975a0c70b448660f8e23b0"><param name="Name" value="~FiducialProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_get_geom_provider.html#a0e3a9696a1dfc46f394759b5229c97b2"><param name="Name" value="~GetGeomProvider"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_control_provider.html#ae134693736b3f1a4c3d844690cea2b98"><param name="Name" value="~GripperControlProvider"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_gripper_proxy.html#a170fee0e7bb6a18239c4a006872eebcc"><param name="Name" value="~GripperProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_model_proxy.html#aca63eae58f2340a6ebce84ab308408be"><param name="Name" value="~ModelProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_new_position_proxy.html#acb6cecae057f32c0d33f04dbe2dbdcfa"><param name="Name" value="~NewPositionProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_proxy.html#a72fca7f5a6eb3a2fa990a40c1a03e8f6"><param name="Name" value="~PositionProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_position_set_odom_provider.html#a70b7b1dc2a595aca435d2c9c8353619b"><param name="Name" value="~PositionSetOdomProvider"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_model_proxies_1_1_ranger_proxy.html#a038e9d582b1dac9ac1a0532deb6f742c"><param name="Name" value="~RangerProxy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_t_c_stage.html#aa98b676ab61f4033195bee459b409fe4"><param name="Name" value="~RTCStage"></OBJECT>
+</UL>
+</BODY>
+</HTML>

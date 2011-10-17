@@ -1,0 +1,624 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RTC:Stage - English &mdash; RTCStage v3.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '3.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="RTCStage v3.0.0 documentation" href="#" />
+    <link rel="next" title="RTC:Stage - 日本語" href="index_j.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index_j.html" title="RTC:Stage - 日本語"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">RTCStage v3.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="rtc-stage-english">
+<h1>RTC:Stage - English<a class="headerlink" href="#rtc-stage-english" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>RTC:Stage is an RT Component for the OpenRTM-aist middleware. It
+provides access to a simulated world being run by the <a class="reference external" href="http://playerstage.sourceforge.net/">Stage
+simulator</a>.  All models in the world can be controlled and their data
+utilised by other components. The models that can be accessed outside of
+the component can be filtered to provide a smaller, more manageable
+component when using large simulations. Additional model proxies can be
+created and added to the component through a simple plugin system.</p>
+<p>A key feature of the component is that its available ports change to
+match the world being simulated. If the simulated world contains two
+robots, separate ports will be available for accessing each robot. If
+multiple lasers are present in the world, multiple laser interfaces will
+be created. See the <a class="reference internal" href="#naming">Naming</a> section for details on port naming.</p>
+</div>
+<div class="section" id="requirements">
+<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<p>RTC:Stage requires the C++ version of OpenRTM-aist-1.0.0 and version 4
+of Stage.</p>
+<p>RTC:Stage uses the <a class="reference external" href="http://www.cmake.org/">CMake build system</a>. You will need at least version
+2.8 to be able to build the component.</p>
+<p>RTC:Stage requires libltdl, part of GNU&#8217;s <a class="reference external" href="http://www.gnu.org/software/libtool/">libtool</a>, for loading plugins.</p>
+<p>Stage itself does not run on Windows. The component is therefore only
+available on Linux and MacOS X.</p>
+</div>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="binary">
+<h2>Binary<a class="headerlink" href="#binary" title="Permalink to this headline">¶</a></h2>
+<p>No binary installers are currently available.</p>
+</div>
+<div class="section" id="from-source">
+<h2>From source<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h2>
+<p>Follow these steps to install RTC:Stage from source in any operating
+system:</p>
+<ul>
+<li><p class="first">Download the source, either from the repository or a source archive,
+and extract it somewhere:</p>
+<div class="highlight-python"><pre>tar -xvzf rtc_stage-2.0.0.tar.gz</pre>
+</div>
+</li>
+<li><p class="first">Change to the directory containing the extracted source:</p>
+<div class="highlight-python"><pre>cd rtc_stage-2.0.0</pre>
+</div>
+</li>
+<li><p class="first">Create a directory called <tt class="docutils literal"><span class="pre">build</span></tt>:</p>
+<div class="highlight-python"><pre>mkdir build</pre>
+</div>
+</li>
+<li><p class="first">Change to that directory:</p>
+<div class="highlight-python"><pre>cd build</pre>
+</div>
+</li>
+<li><p class="first">Run cmake or cmake-gui:</p>
+<div class="highlight-python"><pre>cmake ../</pre>
+</div>
+</li>
+<li><p class="first">If no errors occurred, run make:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">make</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Finally, install the component. Ensure the necessary permissions to
+install into the chosen prefix are available:</p>
+<div class="highlight-python"><pre>make install</pre>
+</div>
+</li>
+<li><p class="first">The install destination can be changed by executing ccmake and changing
+the variable <tt class="docutils literal"><span class="pre">CMAKE_INSTALL_PREFIX</span></tt>:</p>
+<div class="highlight-python"><pre>ccmake ../</pre>
+</div>
+</li>
+</ul>
+<p>The component is now ready for use. See the next section for instructions on
+configuring the component.</p>
+<p>RTC:Stage can be launched in stand-alone mode by executing the
+<tt class="docutils literal"><span class="pre">rtcstage_standalone</span></tt> executable (installed into <tt class="docutils literal"><span class="pre">${prefix}/bin</span></tt>).
+Alternatively, <tt class="docutils literal"><span class="pre">librtcstage.so</span></tt> can be loaded into a manager, using the
+initialisation function <tt class="docutils literal"><span class="pre">rtc_init</span></tt>. This shared object can be found in
+<tt class="docutils literal"><span class="pre">${prefix}/lib</span></tt> or <tt class="docutils literal"><span class="pre">${prefix}/lib64</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>RTC:Stage has a distinct start-up process that is necessary to
+dynamically create ports to match the simulated world. This start-up
+process means that the configuration values must be specified in a
+configuration file, rather than through RTSystemEditor or similar tools.</p>
+<p>To change the component&#8217;s configuration, provide a file similar to the
+one shown below:</p>
+<div class="highlight-python"><pre>configuration.active_config: simple
+
+conf.simple.world_file: /usr/local/share/stage/worlds/simple.world
+conf.simple.gui_x: 640
+conf.simple.gui_y: 480
+conf.simple.limit_models:</pre>
+</div>
+<p>It is possible to specify more than one configuration set in the file.
+The set used when the component initialises is specified on the first
+line. Give the file a suitable name, such as <tt class="docutils literal"><span class="pre">stage.conf</span></tt>. Then add to
+rtc.conf the following line:</p>
+<div class="highlight-python"><pre>Simulation.RTC_Stage.config_file: stage.conf</pre>
+</div>
+<p>The available configuration parameters are described in the
+table below:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Parameter</th>
+<th class="head">Effect</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>world_file</td>
+<td>The path of the world file to load.</td>
+</tr>
+<tr><td>gui_x</td>
+<td>The width of the window to display the simulation in. This option currently has no effect.</td>
+</tr>
+<tr><td>gui_y</td>
+<td>The height of the window to display the simulation in. This option currently has no effect.</td>
+</tr>
+<tr><td>limit_models</td>
+<td>The list of model filters. See <a class="reference internal" href="#filtering-models">Filtering models</a> for details.</td>
+</tr>
+<tr><td>plugins</td>
+<td>A list of paths to proxy plugins that should be loaded. See <a class="reference internal" href="#proxy-plugins">Proxy plugins</a> for details.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ports">
+<h1>Ports<a class="headerlink" href="#ports" title="Permalink to this headline">¶</a></h1>
+<p>The ports provided by the component are dynamically created when the
+component is <em>initialised</em>. They are created to match the models
+available in the world.</p>
+<div class="section" id="naming">
+<h2>Naming<a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h2>
+<p>The port names reflect the world, indicating which models they provide
+access to. For example, if the world contains a robot named <tt class="docutils literal"><span class="pre">r0</span></tt>, a
+set of ports will be created providing access to its velocity control,
+odometry output, geometry service, and so on. These ports will all begin
+with the prefix <tt class="docutils literal"><span class="pre">r0_</span></tt>. See the table below for examples of how the
+port names are created. Note that the special characters <tt class="docutils literal"><span class="pre">.</span></tt> and <tt class="docutils literal"><span class="pre">:</span></tt>
+are replaced by underscores (<tt class="docutils literal"><span class="pre">_</span></tt>).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="29%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Model type</th>
+<th class="head">Model name</th>
+<th class="head">Port name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Robot</td>
+<td>r0</td>
+<td>r0_vel_control</td>
+</tr>
+<tr><td>Laser</td>
+<td>r0.laser:0</td>
+<td>r0_laser_0_ranges</td>
+</tr>
+<tr><td>Camera</td>
+<td>r0.camera:1</td>
+<td>r0_camera_1_image</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="model-proxies">
+<h2>Model proxies<a class="headerlink" href="#model-proxies" title="Permalink to this headline">¶</a></h2>
+<p>The RTC:Stage component uses model proxies to provide access to the
+models contained in the simulated world. Each instance of a model in the
+world corresponds directly to an instance of a model proxy in the
+component. Several proxies are provided with the component. These cover
+the most popular models supported by Stage. They are described in the
+table below.</p>
+<p>In the event that the user wishes to use a model from Stage for which no
+proxy is provided, a plugin proxy can be written. See <a class="reference internal" href="#proxy-plugins">Proxy plugins</a>
+for details.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="15%" />
+<col width="19%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Proxy</th>
+<th class="head">Ports</th>
+<th class="head">Data type</th>
+<th class="head">Port description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Actuator</td>
+<td>vel_control</td>
+<td>TimedDouble</td>
+<td>Velocity control of the actuator.</td>
+</tr>
+<tr><td></td>
+<td>pos_control</td>
+<td>TimedDouble</td>
+<td>Position control of the actuator.</td>
+</tr>
+<tr><td></td>
+<td>state</td>
+<td>ActArrayState</td>
+<td>Current status of the actuator.</td>
+</tr>
+<tr><td></td>
+<td>current_vel</td>
+<td>TimedDouble</td>
+<td>Current velocity of the actuator.</td>
+</tr>
+<tr><td></td>
+<td>svc</td>
+<td>GetGeometry2D</td>
+<td>Get the pose and size of the actuator.</td>
+</tr>
+<tr><td>Camera</td>
+<td>control</td>
+<td>TimedPoint2D</td>
+<td>Control over pan and tilt.</td>
+</tr>
+<tr><td></td>
+<td>image</td>
+<td>CameraImage</td>
+<td>Colour image captured by the camera, in RGBA.</td>
+</tr>
+<tr><td></td>
+<td>depth</td>
+<td>CameraImage</td>
+<td>Depth image captured by the camera, in 8-bit.</td>
+</tr>
+<tr><td></td>
+<td>svc</td>
+<td>GetGeometry2D</td>
+<td>Get the pose and size of the camera.</td>
+</tr>
+<tr><td>Fiducial</td>
+<td>fiducials</td>
+<td>Fiducials</td>
+<td>List of currently-detected fiducials.</td>
+</tr>
+<tr><td></td>
+<td>svc</td>
+<td>GetGeometry2D</td>
+<td>Get the pose and size of the fiducial sensor.</td>
+</tr>
+<tr><td>Gripper</td>
+<td>state</td>
+<td>GripperState</td>
+<td>Status of the gripper.</td>
+</tr>
+<tr><td></td>
+<td>svc</td>
+<td>GetGeometry2D</td>
+<td>Get the pose and size of the gripper.</td>
+</tr>
+<tr><td></td>
+<td>&nbsp;</td>
+<td>GripperControl</td>
+<td>Open and close the gripper.</td>
+</tr>
+<tr><td>Laser</td>
+<td>ranges</td>
+<td>RangeData</td>
+<td>Range values measured by the laser.</td>
+</tr>
+<tr><td></td>
+<td>intensities</td>
+<td>IntensityData</td>
+<td>Intensity values measured by the laser.</td>
+</tr>
+<tr><td></td>
+<td>svc</td>
+<td>GetGeometry2D</td>
+<td>Get the pose and size of the laser sensor.</td>
+</tr>
+<tr><td>Position</td>
+<td>vel_control</td>
+<td>TimedVelocity2D</td>
+<td>Velocity control of the robot.</td>
+</tr>
+<tr><td></td>
+<td>pose_control</td>
+<td>TimedPose2D</td>
+<td>Pose control of the robot.</td>
+</tr>
+<tr><td></td>
+<td>current_vel</td>
+<td>TimedVelocity2D</td>
+<td>Current velocity of the robot.</td>
+</tr>
+<tr><td></td>
+<td>odometry</td>
+<td>TimedPose2D</td>
+<td>Value of the robot&#8217;s odometry sensor.</td>
+</tr>
+<tr><td></td>
+<td>svc</td>
+<td>GetGeometry2D</td>
+<td>Get the pose and size of the robot.</td>
+</tr>
+<tr><td></td>
+<td>&nbsp;</td>
+<td>SetOdometry2D</td>
+<td>Set the value of the odometry sensor.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="filtering-models">
+<h2>Filtering models<a class="headerlink" href="#filtering-models" title="Permalink to this headline">¶</a></h2>
+<p>When using a large simulation, the number of proxied models, and so the
+number of ports provided by the component, may become unmanageable. To
+counter this, the user can specify a set of model name filters in the
+component&#8217;s configuration. Only those models who&#8217;s names match one of
+the filters will have proxies created.</p>
+<p>The filter format is a list of strings separated by commas. Each string
+is a filter. A model&#8217;s name must match at least one filter for a proxy
+to be created. The wild card <tt class="docutils literal"><span class="pre">*</span></tt> can be used to specify flexible
+filters. The filter format is shown in the table below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Filter</th>
+<th class="head">Effect</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">filter</span></tt></td>
+<td>Match the entire model name.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">*filter</span></tt></td>
+<td>Match at the end of the model name.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">filter*</span></tt></td>
+<td>Match at the beginning of the model name.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">*filter*</span></tt></td>
+<td>Match anywhere in the model name.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">filter1*,filter2*</span></tt></td>
+<td>Two filters.</td>
+</tr>
+</tbody>
+</table>
+<p>For example, consider a simulation containing two robots, <tt class="docutils literal"><span class="pre">r0</span></tt> and
+<tt class="docutils literal"><span class="pre">r1.</span></tt> <tt class="docutils literal"><span class="pre">r0</span></tt> has a laser scanner and a camera, while <tt class="docutils literal"><span class="pre">r1</span></tt> has two
+laser scanners.  The simulated component would provide proxies for the
+following models:</p>
+<ul class="simple">
+<li>r0</li>
+<li>r0.camera:0</li>
+<li>r0.laser:0</li>
+<li>r1</li>
+<li>r1.laser:0</li>
+<li>r1.laser:1</li>
+</ul>
+<p>Without any filters, this would produce an instance of RTC:Stage with a
+large number of ports. If the user is only interested in a subset of the
+available models, specifying an appropriate set of filters will restrict
+the number of proxies created. The table below shows examples of which
+models will be proxied for different filter strings.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Filter string</th>
+<th class="head">Created proxies</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">r0</span></tt></td>
+<td>r0</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">r0*</span></tt></td>
+<td>r0, r0.camera:0, r0.laser:0</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">*camera:0</span></tt></td>
+<td>r0.camera:0</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">*:0</span></tt></td>
+<td>r0.camera:0, r0.laser:0, r1.laser:0</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">*laser*</span></tt></td>
+<td>r0.laser:0, r1.laser:0, r1.laser:1</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">r0.laser*,r1.laser*</span></tt></td>
+<td>r0.laser:0, r1.laser:0, r1.laser:1</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">r1,*laser:0</span></tt></td>
+<td>r0.laser:0, r1, r1.laser:0, r1.laser:1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="proxy-plugins">
+<h2>Proxy plugins<a class="headerlink" href="#proxy-plugins" title="Permalink to this headline">¶</a></h2>
+<p>The Stage simulator supports writing model plugins. These provide
+additional functionality in the simulation, allowing new device types to
+be simulated easily without modifying Stage itself. Many robot
+developers may wish to implement new devices in this way for their work.
+Such models are not supported by default in RTC:Stage. To provide
+support, a proxy plugin that matches the model plugin must be created.
+Plugins can also be created for models built into Stage, such as the
+<tt class="docutils literal"><span class="pre">ModelPosition</span></tt> model, and new proxies can be created that over-ride
+the proxies included in RTC:Stage.</p>
+<p>A proxy plugin provides an implementation of the <tt class="docutils literal"><span class="pre">ModelProxy</span></tt>
+interface.  It must implement the abstract methods of this interface,
+and is responsible for adding any relevant ports to the RTC:Stage
+component. It is also responsible for moving data between these ports
+and the simulation.</p>
+<p>In addition, proxy plugins must export two symbols:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">GetProxyType</span></tt> - Returns the model type the plugin is for.</li>
+<li><tt class="docutils literal"><span class="pre">ProxyFactory</span></tt> - Constructs an instance of the proxy.</li>
+</ul>
+<p>To compile a proxy plugin, use the <tt class="docutils literal"><span class="pre">BUILD_PROXY_PLUGIN</span></tt> CMake macro,
+available in the <tt class="docutils literal"><span class="pre">RTCStagePlugin</span></tt> CMake file.</p>
+<p>See the example plugins for more details on creating proxy plugins.
+Generally, copying an example and modifying it to meet the new model
+will allow rapid development.</p>
+</div>
+<div class="section" id="example-plugins">
+<h2>Example plugins<a class="headerlink" href="#example-plugins" title="Permalink to this headline">¶</a></h2>
+<p>Two example plugins are included with the component. They are installed
+with the component in <tt class="docutils literal"><span class="pre">${prefix}/share/rtcstage/examples/</span></tt>, where
+<tt class="docutils literal"><span class="pre">${prefix}</span></tt> is the location in which RTC:Stage was installed. The
+plugins can be compiled using CMake, e.g.:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">${prefix}/share/rtcstage/examples/blobfinder/</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">mkdir</span> <span class="pre">build</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">build</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cmake</span> <span class="pre">../</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">make</span></tt></li>
+</ul>
+<div class="section" id="blobfinder-proxy">
+<h3>Blobfinder proxy<a class="headerlink" href="#blobfinder-proxy" title="Permalink to this headline">¶</a></h3>
+<p>This example plugin provides a proxy to Stage&#8217;s blob finder sensor
+model. It demonstrates using your own IDL in a plugin to provide the
+necessary data types.</p>
+</div>
+<div class="section" id="position-proxy">
+<h3>Position proxy<a class="headerlink" href="#position-proxy" title="Permalink to this headline">¶</a></h3>
+<p>This plugin demonstrates replacing the default position model proxy with
+a custom proxy. By loading the proxy provided by this plugin, the
+default position proxy is over-ridden in the component. The new proxy
+provides an alternate interface to the model using different data types.</p>
+</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<p>An example configuration file is provided in the
+<tt class="docutils literal"><span class="pre">${prefix}/share/rtcstage/examples/conf/</span></tt> directory.</p>
+</div>
+<div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>2.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Updated to support Stage 4.</li>
+<li>The Laser proxy was removed as it no longer exists in Stage. Use the
+Ranger proxy instead.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="license">
+<h1>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
+<p>This software is developed at the National Institute of Advanced
+Industrial Science and Technology. Approval number H23PRO-????. This
+software is licensed under the Lesser General Public License. See
+COPYING.LESSER.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RTC:Stage - English</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#binary">Binary</a></li>
+<li><a class="reference internal" href="#from-source">From source</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#ports">Ports</a><ul>
+<li><a class="reference internal" href="#naming">Naming</a></li>
+<li><a class="reference internal" href="#model-proxies">Model proxies</a></li>
+<li><a class="reference internal" href="#filtering-models">Filtering models</a></li>
+<li><a class="reference internal" href="#proxy-plugins">Proxy plugins</a></li>
+<li><a class="reference internal" href="#example-plugins">Example plugins</a><ul>
+<li><a class="reference internal" href="#blobfinder-proxy">Blobfinder proxy</a></li>
+<li><a class="reference internal" href="#position-proxy">Position proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#changelog">Changelog</a><ul>
+<li><a class="reference internal" href="#id1">2.0</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#license">License</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="index_j.html"
+                        title="next chapter">RTC:Stage - 日本語</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index_j.html" title="RTC:Stage - 日本語"
+             >next</a> |</li>
+        <li><a href="#">RTCStage v3.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-2011, Geoffrey Biggs.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

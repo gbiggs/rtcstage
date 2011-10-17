@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RTC:Stage - 日本語 &mdash; RTCStage v3.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '3.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="RTCStage v3.0.0 documentation" href="index.html" />
+    <link rel="prev" title="RTC:Stage - English" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="RTC:Stage - English"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">RTCStage v3.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="rtc-stage">
+<h1>RTC:Stage - 日本語<a class="headerlink" href="#rtc-stage" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="id1">
+<h1>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>RTC:StageはOpenRTM-aist用のRTコンポーネントです。 <a class="reference external" href="http://playerstage.sourceforge.net/">Stage</a> というシミュレータの
+仮想空間へのアクセスを提供します。仮想空間のモデルは他のコンポーネントで
+操作することが可能で、仮想空間内のデータを他のコンポーネントで使うことも可能です。
+大きな仮想空間でもコンポーネントを使いやすい小さいサイズにフィルタリングする
+機能も提供しています。
+また、コンポーネントの生成や追加によりシミュレータ側で新しいモデルを作成す
+る事が可能なプラグイン機能もサポートしてます。</p>
+<p>本コンポーネントの特徴の一つは、コンポーネントのポートが自動的に仮想空間に対応
+づけられることです。仮想空間に複数のロボットがあっても、コンポーネント側で別々の
+ポートにより操作することが可能です。また、ポートの名前も設定することが可能です。
+<a class="reference internal" href="#id8">ポート名</a> を参照してください。</p>
+</div>
+<div class="section" id="id2">
+<h1>条件<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<p>RTC:StageはOpenRTM-aistのC++版と Stage v4 が必要です。</p>
+<p>RTC:Stageは <a class="reference external" href="http://www.cmake.org/">CMake</a> を使います。CMake 2.6以上が必要です。</p>
+<p>プラグインを使う場合はGNUの <a class="reference external" href="http://www.gnu.org/software/libtool/">libtool</a> にあるlibltdlが 必要です。</p>
+<p>Stage自体はWindowsでは使えないので、コンポーネントはLinuxもしくは、MacOS Xが必要です。</p>
+</div>
+<div class="section" id="id3">
+<h1>インストール<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id4">
+<h2>インストーラ<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>現在、インストーラはありません。</p>
+</div>
+<div class="section" id="id5">
+<h2>ソースから<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>ソースを使う場合は以下の手順でインストールしてください。</p>
+<ul>
+<li><p class="first">ソースをダウンロードして解凍してください:</p>
+<div class="highlight-python"><pre>tar -xvzf rtcstage-2.0.0.tar.gz</pre>
+</div>
+</li>
+<li><p class="first">解凍されたフォルダに入ってください:</p>
+<div class="highlight-python"><pre>cd rtcstage-2.0.0</pre>
+</div>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">build</span></tt> フォルダを作ってください:</p>
+<div class="highlight-python"><pre>mkdir build</pre>
+</div>
+</li>
+<li><p class="first">`` build`` フォルダに入ってください:</p>
+<div class="highlight-python"><pre>cd build</pre>
+</div>
+</li>
+<li><p class="first">CMakeを実行してください:</p>
+<div class="highlight-python"><pre>cmake ../</pre>
+</div>
+</li>
+<li><p class="first">エラーが出無い場合、makeを実行してください:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">make</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">make</span> <span class="pre">install</span></tt> でコンポーネントをインストールしてください。選択された
+インストール場所に書き込み権限があるかを確認してください:</p>
+<div class="highlight-python"><pre>``make install``</pre>
+</div>
+</li>
+<li><p class="first">インストールする場所はccmakeを実行して <tt class="docutils literal"><span class="pre">CMAKE_INSTALL_PREFIX</span></tt> を
+設定することで変更が可能です。</p>
+<blockquote>
+<div><p>ccmake ../</p>
+</div></blockquote>
+</li>
+</ul>
+<p>ここまでで、コンポーネントが使えるようになりました。コンフィグレーションは次のセクションを
+参照してください。</p>
+<p>RTC:Stageは <tt class="docutils literal"><span class="pre">rtcstage_standalone</span></tt> を実行（ <tt class="docutils literal"><span class="pre">${prefix}/bin</span></tt> に
+インストールされます）することでスタンドアローンモードで実行することができます。
+あるいは、 <tt class="docutils literal"><span class="pre">librtcstage.so</span></tt> を初期化関数の <tt class="docutils literal"><span class="pre">rtc_init</span></tt> を利用して、
+マネージャにロードすることができます。このライブラリは <tt class="docutils literal"><span class="pre">${prefix}/lib</span></tt>
+または <tt class="docutils literal"><span class="pre">${prefix}/lib64</span></tt> にインストールされます。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h1>コンフィグレーション<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h1>
+<p>RTC:Stageは仮想空間と一致するポートをダイナミックに作るため特別な起動方法を
+使います。このため、コンフィグレーションはRTSystemEditorやrtshellによってではなく、
+rtc.confなどのコンフィグレーションファイルでパラメータを設定する必要があります。</p>
+<p>コンポーネントのコンフィグレーションを設定するために、以下のようなファイルを作ってください:</p>
+<div class="highlight-python"><pre>configuration.active_config: simple
+
+conf.simple.world_file: /usr/local/share/stage/worlds/simple.world
+conf.simple.gui_x: 640
+conf.simple.gui_y: 480
+conf.simple.limit_models:</pre>
+</div>
+<p>一つのファイルで複数のコンフィグレーションセットを設定することができます。
+上記ファイルの最初の行では、起動時のコンフィグレーションセットを指定してます。
+ファイルに正しい名前をつけ（例： <tt class="docutils literal"><span class="pre">stage.conf</span></tt> ）、 <tt class="docutils literal"><span class="pre">rtc.conf</span></tt> に以下の行を
+追加してください:</p>
+<div class="highlight-python"><pre>Simulation.RTC_Stage.config_file: stage.conf</pre>
+</div>
+<p>本コンポーネントで使えるコンフィグレーションパラメータについては、
+以下のテーブルを参照してください。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">パラメータ</th>
+<th class="head">意味</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>world_file</td>
+<td>ロードするワールドファイルです。Stageの説明書を参照してください。Stageをインストールする時、サンプルワールドファイルがインストールされます。</td>
+</tr>
+<tr><td>gui_x</td>
+<td>シミュレータのウィンドウの幅です。</td>
+</tr>
+<tr><td>gui_y</td>
+<td>シミュレータのウィンドウの高さです。</td>
+</tr>
+<tr><td>limit_models</td>
+<td>モデルのフィルターです。 <a class="reference internal" href="#id10">モデルフィルタ</a> を参照してください。</td>
+</tr>
+<tr><td>plugins</td>
+<td>プロキシープラグインです。 <a class="reference internal" href="#id11">プラグインプロキシー</a> を参照してください。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id7">
+<h1>ポート<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h1>
+<p>コンポーネントは <em>初期化される時</em> に提供するポートをダイナミックに作ります。</p>
+<div class="section" id="id8">
+<h2>ポート名<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>ポート名は仮想空間を反映し、それらがどのモデルにアクセスを提供するかを示します。例えば、
+仮想空間に「r0」という名前のロボットがあれば、そのロボットの速度コントロール、
+オドメトリ出力、幾何学サービスなどへのアクセスを提供するポートが作られます。これらのポートはすべて
+接頭辞に「r0_」が付きます。ポートがどのように作成されるかの例については、
+以下のテーブルを参照してください。特殊文事（「.」と「:」）が「_」
+に取り替えられることに注意してください。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="29%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">モデル種類</th>
+<th class="head">モデル名</th>
+<th class="head">ポート名</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Robot</td>
+<td>r0</td>
+<td>r0_vel_control</td>
+</tr>
+<tr><td>Laser</td>
+<td>r0.laser:0</td>
+<td>r0_laser_0_ranges</td>
+</tr>
+<tr><td>Camera</td>
+<td>r0.camera:1</td>
+<td>r0_camera_1_image</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id9">
+<h2>モデルプロキシー<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>RTC:Stageコンポーネントは、仮想空間に含まれているモデルへのアクセスを提供する
+ためにモデルプロキシーを使用します。仮想空間のモデルのインスタンスはそれぞれコンポーネント
+のモデルプロキシーのインスタンスに直接対応付けられます。いくつかのプロキシーはコンポーネントに
+よって提供されています。これらはStageでサポートされている最も人気なモデルをカバーします。
+これらは以下のテーブルで述べられています。</p>
+<p>プロキシーが提供されていないStageのモデルを使用したい場合、プラグインプロキシーを
+作ることが可能です。詳細については <a class="reference internal" href="#id11">プラグインプロキシー</a> を参照してください。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="16%" />
+<col width="20%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">プロキシー</th>
+<th class="head">ポート</th>
+<th class="head">データ形</th>
+<th class="head">ポートの意味</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Actuator</td>
+<td>vel_control</td>
+<td>TimedDouble</td>
+<td>アクチュエータの速度制御。</td>
+</tr>
+<tr><td></td>
+<td>pos_control</td>
+<td>TimedDouble</td>
+<td>アクチュエータの位置制御。</td>
+</tr>
+<tr><td></td>
+<td>state</td>
+<td>ActArrayState</td>
+<td>アクチュエータの現在の状態。</td>
+</tr>
+<tr><td></td>
+<td>current_vel</td>
+<td>TimedDouble</td>
+<td>アクチュエータの現在の速度。</td>
+</tr>
+<tr><td></td>
+<td>svc</td>
+<td>GetGeometry2D</td>
+<td>アクチュエータの位置とサイズの取得。</td>
+</tr>
+<tr><td>Camera</td>
+<td>control</td>
+<td>TimedPoint2D</td>
+<td>パンとティルトに対するコントロール。</td>
+</tr>
+<tr><td></td>
+<td>image</td>
+<td>CameraImage</td>
+<td>カメラからのイメージ（RGBA）。</td>
+</tr>
+<tr><td></td>
+<td>depth</td>
+<td>CameraImage</td>
+<td>カメラからの深さイメージ（8ビット）。</td>
+</tr>
+<tr><td></td>
+<td>svc</td>
+<td>GetGeometry2D</td>
+<td>カメラの位置とサイズの取得。</td>
+</tr>
+<tr><td>Fiducial</td>
+<td>fiducials</td>
+<td>Fiducials</td>
+<td>現在検知されたfiducialのリスト。</td>
+</tr>
+<tr><td></td>
+<td>svc</td>
+<td>GetGeometry2D</td>
+<td>Fiducialセンサーの位置とサイズの取得。</td>
+</tr>
+<tr><td>Gripper</td>
+<td>state</td>
+<td>GripperState</td>
+<td>グリッパーの状態。</td>
+</tr>
+<tr><td></td>
+<td>svc</td>
+<td>GetGeometry2D</td>
+<td>グリッパーの位置とサイズの取得。</td>
+</tr>
+<tr><td></td>
+<td>&nbsp;</td>
+<td>GripperControl</td>
+<td>グリッパーの開閉。</td>
+</tr>
+<tr><td>Laser</td>
+<td>ranges</td>
+<td>RangeData</td>
+<td>レンジデータ。</td>
+</tr>
+<tr><td></td>
+<td>intensities</td>
+<td>IntensityData</td>
+<td>インテンシティーデータ。</td>
+</tr>
+<tr><td></td>
+<td>svc</td>
+<td>GetGeometry2D</td>
+<td>レーザの位置とサイズの取得。</td>
+</tr>
+<tr><td>Position</td>
+<td>vel_control</td>
+<td>TimedVelocity2D</td>
+<td>ロボットの速度制御。</td>
+</tr>
+<tr><td></td>
+<td>pose_control</td>
+<td>TimedPose2D</td>
+<td>ロボットの位置制御。</td>
+</tr>
+<tr><td></td>
+<td>current_vel</td>
+<td>TimedVelocity2D</td>
+<td>ロボットの現在の速度。</td>
+</tr>
+<tr><td></td>
+<td>odometry</td>
+<td>TimedPose2D</td>
+<td>ロボットの現在のオドメトリー。</td>
+</tr>
+<tr><td></td>
+<td>svc</td>
+<td>GetGeometry2D</td>
+<td>ロボットの位置とサイズの取得。</td>
+</tr>
+<tr><td></td>
+<td>&nbsp;</td>
+<td>SetOdometry2D</td>
+<td>ロボットの現在のオドメトリーの設定。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h2>モデルフィルタ<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>多くのモデルのシミュレーションを行う場合、プロキシーされたモデル、そしてコンポーネントによって提供
+されるポートの数は収集不可能になるかもしれません。これを回避するために、ユーザはコンポーネントの
+コンフィグレーションでモデル名フィルタを指定することができます。コンポーネントはフィルタに
+含まれたモデルのプロキシーだけを作成します。</p>
+<p>フィルタのフォーマットはコンマによって区切られたストリングのリストです。それぞれのストリングが
+フィルタです。モデル名は、プロキシーが作成されるために少なくとも一つのフィルタと一致する必要
+があります。ワイルドカード（「*」）はフレキシブルなフィルタを指定するために使用することができます。
+フィルタフォーマットを以下のテーブルに示します。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">フィルター</th>
+<th class="head">影響</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">filter</span></tt></td>
+<td>モデル名が全て一致。</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">*filter</span></tt></td>
+<td>モデル名の最後のストリングが一致。</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">filter*</span></tt></td>
+<td>モデル名の先頭のストリングが一致。</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">*filter*</span></tt></td>
+<td>モデル名の一部のストリングが一致。</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">filter1*,filter2*</span></tt></td>
+<td>二つのフィルター。</td>
+</tr>
+</tbody>
+</table>
+<p>例えば、２台のロボット、「r0」及び「r1」を含んでいるシミュレーションを考慮してください。
+「r0」にはレーザーセンサー及びカメラがあります。「r1」には二つのレーザーセンサーがあります。
+シミュレートされたコンポーネントは、以下のモデルにプロキシーを提供します。</p>
+<ul class="simple">
+<li>r0</li>
+<li>r0.camera:0</li>
+<li>r0.laser:0</li>
+<li>r1</li>
+<li>r1.laser:0</li>
+<li>r1.laser:1</li>
+</ul>
+<p>フィルタなしでは、これは多くのポートを備えたRTC:Stageのインスタンスを生産します。ユーザが単に
+利用可能なモデルの一部だけに興味を持っていれば、適切なフィルタによってプロキシーの数を制限することが
+できます。以下のテーブルは、異なるフィルタストリングでプロキシー
+されたモデルの例を示します。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">フィルタ</th>
+<th class="head">作成されたプロキシー</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">r0</span></tt></td>
+<td>r0</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">r0*</span></tt></td>
+<td>r0, r0.camera:0, r0.laser:0</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">*camera:0</span></tt></td>
+<td>r0.camera:0</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">*:0</span></tt></td>
+<td>r0.camera:0, r0.laser:0, r1.laser:0</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">*laser*</span></tt></td>
+<td>r0.laser:0, r1.laser:0, r1.laser:1</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">r0.laser*,r1.laser*</span></tt></td>
+<td>r0.laser:0, r1.laser:0, r1.laser:1</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">r1,*laser:0</span></tt></td>
+<td>r0.laser:0, r1, r1.laser:0, r1.laser:1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h2>プラグインプロキシー<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>Stageシミュレータはモデルプラグインを書くことをサポートします。これらは、新しいデバイスタイプが
+Stage自体を修正せずに、容易にシミュレートすることを可能にするため、シミュレーションでの機能の追加
+を提供します。多くのロボット開発者がこの方法で新しい装備を実装したいと思うかもしれません。
+そのようなモデルはRTC:Stageではデフォルトではサポートされません。サポートをするために、モデル
+プラグインに合うプロキシープラグインを作成しなければなりません。プロキシープラグインも
+<tt class="docutils literal"><span class="pre">ModelPosition</span></tt> モデルのようなStageに組み込まれたモデルのために作成することができます。また、
+RTC:Stageに含まれたプロキシーを無視する、新しいプロキシーも作成することができます。</p>
+<p>プロキシープラグインは <tt class="docutils literal"><span class="pre">ModelProxy</span></tt> インターフィースのインプリメンテーションを提供します。
+それは、このインターフェースの抽象メソッドを実装しなければならず、RTC:Stageコンポーネントに
+ポートを関連付けるために重要です。されに、それはこれらのポートとシミュレーションの間のデータを
+やり取りするために重要です。</p>
+<p>されに、プロキシープラグインは2つのシンボルを書き出す必要があります：</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">GetProxyType</span></tt> - プラグインのモデル種類を返す。</li>
+<li><tt class="docutils literal"><span class="pre">ProxyFactory</span></tt> - プラグインのインスタンスを作成する.</li>
+</ul>
+<p>プロキシープラグインをコンパイルするには <tt class="docutils literal"><span class="pre">BUILD_PROXY_PLUGIN</span></tt> というCMake用のマクロを
+使ってください。 <tt class="docutils literal"><span class="pre">RTCStagePlugin</span></tt> というCMakeファイルで提供されています。</p>
+<p>RTC:Stageにはプラグインのサンプルがあります。 <tt class="docutils literal"><span class="pre">${prefix}/share/rtcstage/examples/</span></tt> に
+インストールされます。プロキシープラグインの作成についての詳細については、これらのサンプルを参照
+してください。一般に、サンプルをコピーしソースを新しいモデルに合わせる用に修正する方が開発が早い
+でしょう。</p>
+</div>
+<div class="section" id="id12">
+<h2>プラグインの例<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>RTC:Stageには二つのプラグインのサンプルがあります。 <tt class="docutils literal"><span class="pre">${prefix}/share/rtcstage/examples/</span></tt>
+にインストールされます。 <tt class="docutils literal"><span class="pre">${prefix}</span></tt> はRTC:Stageがインストールされたフォルダです。
+プラグインはCMakeでコンパイルすることができます。</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">${prefix}/share/rtc\_stage/examples/blobfinder/</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">mkdir</span> <span class="pre">build</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">build</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cmake</span> <span class="pre">../</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">make</span></tt></li>
+</ul>
+<div class="section" id="blobfinder">
+<h3>Blobfinderプロキシー<a class="headerlink" href="#blobfinder" title="Permalink to this headline">¶</a></h3>
+<p>このサンプルプラグインはStageのblobfinderセンサーモデルにプロキシーを提供します。必要なデータ型を
+提供するためにプラグインでユーザのIDLファイルを使用するサンプルを示してます。</p>
+</div>
+<div class="section" id="position">
+<h3>Positionプロキシー<a class="headerlink" href="#position" title="Permalink to this headline">¶</a></h3>
+<p>このプラグインはデフォルトの位置モデルプロキシーをカスタムプロキシーに取り替えて明示してます。
+このプラグインによって提供されるプロキシーを読み込む事によって、デフォルトのpositionプロキシーは
+コンポーネント中で無視されます。新しいプロキシーは異なるデータ型を使用するため、モデルに代替
+インターフェースを提供します。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h1>例<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h1>
+<p>例のrtc.confファイルは <tt class="docutils literal"><span class="pre">${prefix}/share/rtcstage/examples/conf/</span></tt>
+フォルダにインストールされています。</p>
+</div>
+<div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id14">
+<h2>2.0<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Updated to support Stage 4.</li>
+<li>The Laser proxy was removed as it no longer exists in Stage. Use the
+Ranger proxy instead.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="license">
+<h1>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
+<p>このソフトウェアは産業技術総合研究所で開発されています。承認番号はH23PRO-????
+です。このソフトウェアは Lesser General Public License (LGPL) ライセンスとして
+公開されてます。COPYING.LESSER を参照してください。</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RTC:Stage - 日本語</a></li>
+<li><a class="reference internal" href="#id1">はじめに</a></li>
+<li><a class="reference internal" href="#id2">条件</a></li>
+<li><a class="reference internal" href="#id3">インストール</a><ul>
+<li><a class="reference internal" href="#id4">インストーラ</a></li>
+<li><a class="reference internal" href="#id5">ソースから</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">コンフィグレーション</a></li>
+<li><a class="reference internal" href="#id7">ポート</a><ul>
+<li><a class="reference internal" href="#id8">ポート名</a></li>
+<li><a class="reference internal" href="#id9">モデルプロキシー</a></li>
+<li><a class="reference internal" href="#id10">モデルフィルタ</a></li>
+<li><a class="reference internal" href="#id11">プラグインプロキシー</a></li>
+<li><a class="reference internal" href="#id12">プラグインの例</a><ul>
+<li><a class="reference internal" href="#blobfinder">Blobfinderプロキシー</a></li>
+<li><a class="reference internal" href="#position">Positionプロキシー</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13">例</a></li>
+<li><a class="reference internal" href="#changelog">Changelog</a><ul>
+<li><a class="reference internal" href="#id14">2.0</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#license">License</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">RTC:Stage - English</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index_j.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="RTC:Stage - English"
+             >previous</a> |</li>
+        <li><a href="index.html">RTCStage v3.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010-2011, Geoffrey Biggs.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

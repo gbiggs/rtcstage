@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_model_proxies_1_1_model_proxy.html" title="ModelProxies::ModelProxy" alt="" coords="7,182,204,210"/>
+<area shape="rect" id="node3" href="$class_blobfinder_proxy.html" title="BlobfinderProxy" alt="" coords="299,5,424,33"/>
+<area shape="rect" id="node5" href="$class_model_proxies_1_1_actuator_proxy.html" title="ModelProxies::ActuatorProxy" alt="" coords="255,55,468,83"/>
+<area shape="rect" id="node7" href="$class_model_proxies_1_1_camera_proxy.html" title="ModelProxies::CameraProxy" alt="" coords="256,106,467,134"/>
+<area shape="rect" id="node9" href="$class_model_proxies_1_1_fiducial_proxy.html" title="ModelProxies::FiducialProxy" alt="" coords="259,157,464,185"/>
+<area shape="rect" id="node11" href="$class_model_proxies_1_1_gripper_proxy.html" title="ModelProxies::GripperProxy" alt="" coords="259,207,464,235"/>
+<area shape="rect" id="node13" href="$class_model_proxies_1_1_position_proxy.html" title="ModelProxies::PositionProxy" alt="" coords="256,258,467,286"/>
+<area shape="rect" id="node15" href="$class_model_proxies_1_1_ranger_proxy.html" title="ModelProxies::RangerProxy" alt="" coords="259,309,464,337"/>
+<area shape="rect" id="node17" href="$class_new_position_proxy.html" title="NewPositionProxy" alt="" coords="291,359,432,387"/>
+</map>
